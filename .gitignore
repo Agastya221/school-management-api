@@ -12,6 +12,9 @@ yarn-error.log*
 .env.production
 
 
+# TypeScript
+*.tsbuildinfo
+
 # Build outputs
 dist/
 build/
