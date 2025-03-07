@@ -1,0 +1,201 @@
+[
+    {
+      "name": "Greenwood High School",
+      "address": "123 Elm St, Springfield",
+      "latitude": 37.7749,
+      "longitude": -122.4194
+    },
+    {
+      "name": "Riverdale Academy",
+      "address": "456 Oak St, Riverdale",
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    },
+    {
+      "name": "Sunnyvale Middle School",
+      "address": "789 Pine St, Sunnyvale",
+      "latitude": 36.7783,
+      "longitude": -119.4179
+    },
+    {
+      "name": "Maplewood Elementary",
+      "address": "101 Maple Ave, Maplewood",
+      "latitude": 40.7128,
+      "longitude": -74.0060
+    },
+    {
+      "name": "Cedar Hill High",
+      "address": "202 Cedar St, Cedar Hill",
+      "latitude": 41.8781,
+      "longitude": -87.6298
+    },
+    {
+      "name": "Lakeview Academy",
+      "address": "303 Lakeview Dr, Lakeview",
+      "latitude": 29.7604,
+      "longitude": -95.3698
+    },
+    {
+      "name": "Pinecrest High",
+      "address": "404 Pinecrest Rd, Pinecrest",
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    },
+    {
+      "name": "Westwood International",
+      "address": "505 Westwood Blvd, Westwood",
+      "latitude": 47.6062,
+      "longitude": -122.3321
+    },
+    {
+      "name": "Hillside Middle School",
+      "address": "606 Hillside Ln, Hillside",
+      "latitude": 39.7392,
+      "longitude": -104.9903
+    },
+    {
+      "name": "Brookstone School",
+      "address": "707 Brookstone Rd, Brookstone",
+      "latitude": 25.7617,
+      "longitude": -80.1918
+    },
+    {
+      "name": "Silverlake High",
+      "address": "808 Silverlake Ave, Silverlake",
+      "latitude": 33.4484,
+      "longitude": -112.0740
+    },
+    {
+      "name": "Evergreen Academy",
+      "address": "909 Evergreen St, Evergreen",
+      "latitude": 32.7767,
+      "longitude": -96.7970
+    },
+    {
+      "name": "Sunrise High School",
+      "address": "1010 Sunrise Blvd, Sunrise",
+      "latitude": 39.9526,
+      "longitude": -75.1652
+    },
+    {
+      "name": "Oakridge International",
+      "address": "1111 Oakridge Dr, Oakridge",
+      "latitude": 38.9072,
+      "longitude": -77.0369
+    },
+    {
+      "name": "Golden Gate High",
+      "address": "1212 Golden Gate St, Golden Gate",
+      "latitude": 37.7749,
+      "longitude": -122.4194
+    },
+    {
+      "name": "Aspen Grove Academy",
+      "address": "1313 Aspen Grove Ln, Aspen Grove",
+      "latitude": 36.1699,
+      "longitude": -115.1398
+    },
+    {
+      "name": "Mountainview School",
+      "address": "1414 Mountainview Rd, Mountainview",
+      "latitude": 42.3601,
+      "longitude": -71.0589
+    },
+    {
+      "name": "Valley High School",
+      "address": "1515 Valley St, Valley",
+      "latitude": 40.7608,
+      "longitude": -111.8910
+    },
+    {
+      "name": "Blue Ridge Academy",
+      "address": "1616 Blue Ridge Dr, Blue Ridge",
+      "latitude": 39.7684,
+      "longitude": -86.1581
+    },
+    {
+      "name": "Crystal Lake School",
+      "address": "1717 Crystal Lake Blvd, Crystal Lake",
+      "latitude": 44.9778,
+      "longitude": -93.2650
+    },
+    {
+      "name": "Maple Creek High",
+      "address": "1818 Maple Creek Rd, Maple Creek",
+      "latitude": 45.5152,
+      "longitude": -122.6784
+    },
+    {
+      "name": "Oceanview School",
+      "address": "1919 Oceanview Dr, Oceanview",
+      "latitude": 33.6846,
+      "longitude": -117.8265
+    },
+    {
+      "name": "Silver Birch Academy",
+      "address": "2020 Silver Birch St, Silver Birch",
+      "latitude": 43.0389,
+      "longitude": -87.9065
+    },
+    {
+      "name": "Golden Valley High",
+      "address": "2121 Golden Valley Rd, Golden Valley",
+      "latitude": 37.3382,
+      "longitude": -121.8863
+    },
+    {
+      "name": "Redwood International",
+      "address": "2222 Redwood Ln, Redwood",
+      "latitude": 47.6062,
+      "longitude": -122.3321
+    },
+    {
+      "name": "Birchwood Academy",
+      "address": "2323 Birchwood Dr, Birchwood",
+      "latitude": 34.4208,
+      "longitude": -119.6982
+    },
+    {
+      "name": "Snowpeak High",
+      "address": "2424 Snowpeak Ave, Snowpeak",
+      "latitude": 32.7157,
+      "longitude": -117.1611
+    },
+    {
+      "name": "Greenfield School",
+      "address": "2525 Greenfield Rd, Greenfield",
+      "latitude": 29.4241,
+      "longitude": -98.4936
+    },
+    {
+      "name": "Waverly Academy",
+      "address": "2626 Waverly St, Waverly",
+      "latitude": 39.1031,
+      "longitude": -84.5120
+    },
+    {
+      "name": "Riverbend High",
+      "address": "2727 Riverbend Dr, Riverbend",
+      "latitude": 38.2527,
+      "longitude": -85.7585
+    },
+    {
+      "name": "Lakeshore International",
+      "address": "2828 Lakeshore Blvd, Lakeshore",
+      "latitude": 30.2672,
+      "longitude": -97.7431
+    },
+    {
+      "name": "Cedarwood School",
+      "address": "2929 Cedarwood Ln, Cedarwood",
+      "latitude": 35.2271,
+      "longitude": -80.8431
+    },
+    {
+      "name": "Stonebridge High",
+      "address": "3030 Stonebridge Rd, Stonebridge",
+      "latitude": 39.7684,
+      "longitude": -86.1581
+    }
+  ]
+  
