@@ -137,26 +137,3 @@ export const listSchools = async (req: RequestWithCoordinates, res: Response): P
     });
   }
 };
-
-// Seed database with sample data
-
-export const seedDatabase = async (res: Response): Promise<void> => {
-  try {
-    await prisma.school.createMany({
-      data: schoolsData,
-      skipDuplicates: true,
-    });
-
-    res.status(201).json({
-      success: true,
-      message: '✅ Database seeded successfully',
-    });
-  } catch (error) {
-    console.error('❌ Error seeding database:', error);
-    res.status(500).json({
-      success: false,
-      message: 'Server error while seeding database',
-    });
-  }
-};
-

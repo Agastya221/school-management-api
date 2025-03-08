@@ -1,5 +1,5 @@
 import express from 'express';
-import { addSchool, listSchools,seedDatabase } from '../controllers/schoolController';
+import { addSchool, listSchools } from '../controllers/schoolController';
 import { validateSchoolData, validateLocationParams } from '../middlewares/validationMiddleware';
  ;
 
@@ -11,7 +11,5 @@ router.post('/addSchool', validateSchoolData, addSchool);
 // List schools 
 router.get('/listSchools', validateLocationParams, listSchools);
 
-// Seed database with sample data
-router.post('/seedDatabase', seedDatabase);
 
 export default router; 
