@@ -20,10 +20,6 @@ COPY . .
 #generate Prisma client
 RUN npx prisma generate
 
-
-#Seed the database
-RUN npx prisma db seed 
-
 # Build the app
 RUN npm run build
 
