@@ -12,6 +12,6 @@ router.post('/addSchool', validateSchoolData, addSchool);
 router.get('/listSchools', validateLocationParams, listSchools);
 
 // Seed database with sample data
-router.get('/seedDatabase', seedDatabase);
+router.post('/seedDatabase', seedDatabase);
 
 export default router; 
