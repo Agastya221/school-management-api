@@ -33,7 +33,7 @@ A Node.js API for managing school data, built with Express.js, TypeScript, Postg
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/Agastya221/school-management-api.git
 cd school-management-api
 ```
 
@@ -58,6 +58,9 @@ npm run prisma:generate
 
 # Create database and apply migrations
 npm run prisma:migrate
+
+# Seed the database with initial data
+npx prisma db seed
 ```
 
 5. Run the application in development mode:
@@ -152,7 +155,8 @@ npm run docker:up
 ```
 school-management-api/
 ├── prisma/
-│   └── schema.prisma       # Database schema definition
+│   ├── schema.prisma       # Database schema definition
+│   └── seed.ts             # Database seed script
 ├── src/
 │   ├── controllers/        # Business logic
 │   │   └── schoolController.ts
@@ -184,6 +188,24 @@ model School {
   updatedAt DateTime @updatedAt
 }
 ```
+
+## Database Seeding
+
+The application includes a database seeding mechanism to populate the database with initial data. The seed script is located at `prisma/seed.ts` and is configured in the `package.json` file:
+
+```json
+"prisma": {
+  "seed": "ts-node prisma/seed.ts"
+}
+```
+
+To seed the database:
+
+```bash
+npx prisma db seed
+```
+
+This will populate the database with predefined schools, making it easier to test the application without manually adding data.
 
 ## Caching Strategy
 
