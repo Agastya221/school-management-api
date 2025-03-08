@@ -32,7 +32,7 @@ interface SchoolWithDistance extends School {
 
 // Read school data from JSON file
 const schoolsData = JSON.parse(
-  fs.readFileSync(path.join(__dirname, '../data.json'), 'utf-8')
+  fs.readFileSync(path.join(__dirname, '../../prisma/data.json'), 'utf-8')
 );
 
 
