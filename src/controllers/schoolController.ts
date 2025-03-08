@@ -95,11 +95,13 @@ export const listSchools = async (req: RequestWithCoordinates, res: Response): P
       return;
     }
 
-      
+    // Create a unique cache key based on latitude and longitude
+    const cacheKey = `schools:${userLat}:${userLon}`;
 
     // Check cache first
-    const cachedSchools = await redis.get('schools');
+    const cachedSchools = await redis.get(cacheKey);
     if (cachedSchools) {
+      console.log('✅ Cache hit');
       res.status(200).json({
         success: true,
         data: JSON.parse(cachedSchools),
@@ -107,6 +109,8 @@ export const listSchools = async (req: RequestWithCoordinates, res: Response): P
       });
       return;
     }
+
+    console.log('❌ Cache miss - refetching schools');
 
     // Fetch and sort schools 
     const schools = await prisma.$queryRaw<SchoolWithDistance[]>`
@@ -121,8 +125,16 @@ export const listSchools = async (req: RequestWithCoordinates, res: Response): P
       ORDER BY distance ASC;
     `;
 
-    // Caching the results
-    await redis.set('schools', JSON.stringify(schools), 'EX', 3600); 
+    if (schools.length === 0) {
+      res.status(404).json({
+        success: false,
+        message: 'No schools found',
+      });
+      return;
+    }
+
+    // Cache results using the unique key based on location
+    await redis.set(cacheKey, JSON.stringify(schools), 'EX', 3600); // Cache for 1 hour
 
     res.status(200).json({
       success: true,
@@ -130,10 +142,11 @@ export const listSchools = async (req: RequestWithCoordinates, res: Response): P
       message: 'Schools retrieved successfully',
     });
   } catch (error) {
-    console.error('Error listing schools:', error);
+    console.error('❌ Error listing schools:', error);
     res.status(500).json({
       success: false,
       message: 'Server error',
     });
   }
 };
+
