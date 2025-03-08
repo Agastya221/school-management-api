@@ -1,6 +1,6 @@
 # School Management API
 
-A Node.js API for managing school data, built with Express.js and PostgreSQL using Prisma ORM.
+A Node.js API for managing school data, built with Express.js, TypeScript, PostgreSQL, Redis, and Prisma ORM.
 
 ## Features
 
@@ -8,17 +8,28 @@ A Node.js API for managing school data, built with Express.js and PostgreSQL usi
 - List schools sorted by proximity to a specified location
 - Data validation and error handling
 - PostgreSQL database with Prisma ORM
-- Redis
-- Docker
+- Redis caching for improved performance
+- Docker containerization for easy deployment
+- TypeScript for type safety and better developer experience
+
+## Tech Stack
+
+- **Backend**: Node.js, Express.js, TypeScript
+- **Database**: PostgreSQL
+- **ORM**: Prisma
+- **Caching**: Redis
+- **Containerization**: Docker, Docker Compose
+- **API Testing**: Postman
 
 ## Prerequisites
 
 - Node.js (v14 or higher)
-- PostgreSQL database
-- Redis 
+- Docker and Docker Compose
 - npm or yarn
 
 ## Setup
+
+### Local Development
 
 1. Clone the repository:
 ```bash
@@ -32,13 +43,13 @@ npm install
 ```
 
 3. Configure environment variables:
-   - Create a `.env` file in the root directory
+   - Create `.env.local`if  file is not present in the root directory
    - Add the following variables:
 ```
-DATABASE_URL="postgresql://username:password@localhost:5432/school_management"
+DATABASE_URL="postgresql://postgres:postgres@localhost:5432/school_management?sslmode=require"
 PORT=3000
+REDIS_URL="redis://localhost:6379"
 ```
-   - Replace `username` and `password` with your PostgreSQL credentials
 
 4. Set up the database:
 ```bash
@@ -49,18 +60,25 @@ npm run prisma:generate
 npm run prisma:migrate
 ```
 
-## Running the Application
-
-### Development Mode
+5. Run the application in development mode:
 ```bash
 npm run dev
 ```
 
-### Production Mode
+### Docker Deployment
+
+1. Make sure Docker and Docker Compose are installed on your system
+
+2. Run the application using Docker Compose:
 ```bash
-npm run build
-npm start
+npm run docker:up
 ```
+   This will build and start the containers for:
+   - Node.js application
+   - PostgreSQL database
+   - Redis cache
+
+3. The API will be available at `http://localhost:3000`
 
 ## API Endpoints
 
@@ -129,6 +147,28 @@ npm start
 }
 ```
 
+## Project Structure
+
+```
+school-management-api/
+├── prisma/
+│   └── schema.prisma       # Database schema definition
+├── src/
+│   ├── controllers/        # Business logic
+│   │   └── schoolController.ts
+│   ├── middlewares/        # Request processing middleware
+│   │   └── validationMiddleware.ts
+│   ├── routes/             # API route definitions
+│   │   └── schoolRoutes.ts
+│   └── index.ts            # Application entry point
+├── .env                    # Environment variables
+├── docker-compose.yml      # Docker Compose configuration
+├── Dockerfile              # Docker container configuration
+├── package.json            # Project dependencies and scripts
+├── tsconfig.json           # TypeScript configuration
+└── README.md               # Project documentation
+```
+
 ## Database Schema
 
 The application uses a PostgreSQL database with the following schema:
@@ -144,6 +184,22 @@ model School {
   updatedAt DateTime @updatedAt
 }
 ```
+
+## Caching Strategy
+
+The application uses Redis for caching:
+- School list is cached to improve performance for frequently accessed data
+- Cache is invalidated when new schools are added
+
+## Available Scripts
+
+- `npm run dev`: Run the application in development mode
+- `npm run build`: Build the TypeScript code
+- `npm start`: Run the built application in production mode
+- `npm run prisma:generate`: Generate Prisma client
+- `npm run prisma:migrate`: Run database migrations
+- `npm run prisma:studio`: Open Prisma Studio to manage database
+- `npm run docker:up`: Build and start Docker containers
 
 ## Error Handling
 

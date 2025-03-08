@@ -7,7 +7,7 @@ const router = express.Router();
 // Add a new school
 router.post('/addSchool', validateSchoolData, addSchool);
 
-// List schools sorted by proximity
+// List schools 
 router.get('/listSchools', validateLocationParams, listSchools);
 
 export default router; 
