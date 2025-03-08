@@ -1,6 +1,8 @@
 import { Request, Response } from 'express';
 import { prisma } from '../index';
 import { redis } from '../index';
+import path from 'path';
+import fs from 'fs';
 
 
 interface RequestWithCoordinates extends Request {
@@ -25,6 +27,15 @@ interface School {
 interface SchoolWithDistance extends School {
   distance: number;
 }
+
+
+
+// Read school data from JSON file
+const schoolsData = JSON.parse(
+  fs.readFileSync(path.join(__dirname, '../data.json'), 'utf-8')
+);
+
+
 
 // Add new school
 export const addSchool = async (req: Request, res: Response): Promise<void> => {
@@ -126,3 +137,26 @@ export const listSchools = async (req: RequestWithCoordinates, res: Response): P
     });
   }
 };
+
+// Seed database with sample data
+
+export const seedDatabase = async (res: Response): Promise<void> => {
+  try {
+    await prisma.school.createMany({
+      data: schoolsData,
+      skipDuplicates: true,
+    });
+
+    res.status(201).json({
+      success: true,
+      message: '✅ Database seeded successfully',
+    });
+  } catch (error) {
+    console.error('❌ Error seeding database:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Server error while seeding database',
+    });
+  }
+};
+
